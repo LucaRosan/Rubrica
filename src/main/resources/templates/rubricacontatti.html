@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="it" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Rubrica Contatti</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body class="p-4">
 
     <div class="container">
@@ -13,7 +15,7 @@
 
         <!-- Tabella Contatti -->
         <table class="table table-striped table-bordered">
-            <thead class="table-dark">
+            <thead class="table-dark" th:if="${!#lists.isEmpty(contatti)}">
                 <tr>
                     <th>Nome</th>
                     <th>Cognome</th>
@@ -33,8 +35,10 @@
                         <a class="btn btn-sm btn-danger" th:href="@{/elimina(id=${contatto.id})}">Elimina</a>
                     </td>
                 </tr>
-                <!-- Altri contatti verranno aggiunti dinamicamente -->
             </tbody>
+            <h5 th:text="'Al momento non ci sono contatti registrati'" th:if="${#lists.isEmpty(contatti)}" class="text-center"></h5>
+            <!-- Altri contatti verranno aggiunti dinamicamente -->
+
         </table>
 
         <!-- Form Inserimento/Modifica -->
@@ -75,27 +79,32 @@
                 <div class="col-md-4">
                     <label class="form-label">Via</label>
                     <input type="text" class="form-control" name="via" th:field="*{indirizzo.via}">
-                    <small class="text-danger" th:if="${#fields.hasErrors('indirizzo.via')}" th:errors="*{indirizzo.via}"></small>
+                    <small class="text-danger" th:if="${#fields.hasErrors('indirizzo.via')}"
+                        th:errors="*{indirizzo.via}"></small>
                 </div>
                 <div class="col-md-2">
                     <label class="form-label">Civico</label>
                     <input type="text" class="form-control" name="civico" th:field="*{indirizzo.civico}">
-                    <small class="text-danger" th:if="${#fields.hasErrors('indirizzo.civico')}" th:errors="*{indirizzo.civico}"></small>
+                    <small class="text-danger" th:if="${#fields.hasErrors('indirizzo.civico')}"
+                        th:errors="*{indirizzo.civico}"></small>
                 </div>
                 <div class="col-md-2">
                     <label class="form-label">CAP</label>
                     <input type="text" class="form-control" name="cap" th:field="*{indirizzo.cap}">
-                    <small class="text-danger" th:if="${#fields.hasErrors('indirizzo.cap')}" th:errors="*{indirizzo.cap}"></small>
+                    <small class="text-danger" th:if="${#fields.hasErrors('indirizzo.cap')}"
+                        th:errors="*{indirizzo.cap}"></small>
                 </div>
                 <div class="col-md-2">
                     <label class="form-label">Comune</label>
                     <input type="text" class="form-control" name="comune" th:field="*{indirizzo.comune}">
-                    <small class="text-danger" th:if="${#fields.hasErrors('indirizzo.comune')}" th:errors="*{indirizzo.comune}"></small>
+                    <small class="text-danger" th:if="${#fields.hasErrors('indirizzo.comune')}"
+                        th:errors="*{indirizzo.comune}"></small>
                 </div>
                 <div class="col-md-2">
                     <label class="form-label">Provincia</label>
                     <input type="text" class="form-control" name="provincia" th:field="*{indirizzo.provincia}">
-                    <small class="text-danger" th:if="${#fields.hasErrors('indirizzo.provincia')}" th:errors="*{indirizzo.provincia}"></small>
+                    <small class="text-danger" th:if="${#fields.hasErrors('indirizzo.provincia')}"
+                        th:errors="*{indirizzo.provincia}"></small>
                 </div>
             </div>
 
@@ -105,4 +114,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

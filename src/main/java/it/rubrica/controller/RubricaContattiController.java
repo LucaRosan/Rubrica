@@ -1,5 +1,7 @@
 package it.rubrica.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import it.rubrica.model.Contatto;
-import it.rubrica.model.Indirizzo;
 import it.rubrica.service.ContattiService;
 import jakarta.validation.Valid;
 
@@ -26,7 +27,6 @@ public class RubricaContattiController {
     public String renderPagina(Model model) {
 
         model.addAttribute("contatti", contattiService.elencoContatti());
-
         model.addAttribute("contatto", new Contatto());
         return "rubricacontatti";
     }
