@@ -47,12 +47,12 @@
             <div class="row mb-3">
                 <div class="col-md-6">
                     <label class="form-label">Nome</label>
-                    <input type="text" class="form-control" name="nome" th:field="*{nome}">
+                    <input type="text" class="form-control" name="nome" th:field="*{nome}" required>
                     <small class="text-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></small>
                 </div>
                 <div class="col-md-6">
                     <label class="form-label">Cognome</label>
-                    <input type="text" class="form-control" name="cognome" th:field="*{cognome}">
+                    <input type="text" class="form-control" name="cognome" th:field="*{cognome}" required>
                     <small class="text-danger" th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></small>
                 </div>
             </div>
@@ -60,12 +60,12 @@
             <div class="row mb-3">
                 <div class="col-md-6">
                     <label class="form-label">Telefono</label>
-                    <input type="tel" class="form-control" name="telefono" th:field="*{telefono}">
+                    <input type="tel" class="form-control" name="telefono" th:field="*{telefono}" required>
                     <small class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></small>
                 </div>
                 <div class="col-md-6">
                     <label class="form-label">Email</label>
-                    <input type="email" class="form-control" name="mail" th:field="*{mail}">
+                    <input type="email" class="form-control" name="mail" th:field="*{mail}" required>
                     <small class="text-danger" th:if="${#fields.hasErrors('mail')}" th:errors="*{mail}"></small>
                 </div>
             </div>
@@ -78,31 +78,31 @@
             <div class="row mb-3">
                 <div class="col-md-4">
                     <label class="form-label">Via</label>
-                    <input type="text" class="form-control" name="via" th:field="*{indirizzo.via}">
+                    <input type="text" class="form-control" name="via" th:field="*{indirizzo.via}" required>
                     <small class="text-danger" th:if="${#fields.hasErrors('indirizzo.via')}"
                         th:errors="*{indirizzo.via}"></small>
                 </div>
                 <div class="col-md-2">
                     <label class="form-label">Civico</label>
-                    <input type="text" class="form-control" name="civico" th:field="*{indirizzo.civico}">
+                    <input type="text" class="form-control" name="civico" th:field="*{indirizzo.civico}" required>
                     <small class="text-danger" th:if="${#fields.hasErrors('indirizzo.civico')}"
                         th:errors="*{indirizzo.civico}"></small>
                 </div>
                 <div class="col-md-2">
                     <label class="form-label">CAP</label>
-                    <input type="text" class="form-control" name="cap" th:field="*{indirizzo.cap}">
+                    <input type="text" class="form-control" name="cap" th:field="*{indirizzo.cap}" required>
                     <small class="text-danger" th:if="${#fields.hasErrors('indirizzo.cap')}"
                         th:errors="*{indirizzo.cap}"></small>
                 </div>
                 <div class="col-md-2">
                     <label class="form-label">Comune</label>
-                    <input type="text" class="form-control" name="comune" th:field="*{indirizzo.comune}">
+                    <input type="text" class="form-control" name="comune" th:field="*{indirizzo.comune}" required>
                     <small class="text-danger" th:if="${#fields.hasErrors('indirizzo.comune')}"
                         th:errors="*{indirizzo.comune}"></small>
                 </div>
                 <div class="col-md-2">
                     <label class="form-label">Provincia</label>
-                    <input type="text" class="form-control" name="provincia" th:field="*{indirizzo.provincia}">
+                    <input type="text" class="form-control" name="provincia" th:field="*{indirizzo.provincia}" required>
                     <small class="text-danger" th:if="${#fields.hasErrors('indirizzo.provincia')}"
                         th:errors="*{indirizzo.provincia}"></small>
                 </div>

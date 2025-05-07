@@ -1,7 +1,5 @@
 package it.rubrica.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,10 +43,8 @@ public class RubricaContattiController {
     }
 
 
-
-
     @PostMapping
-    public String aggiungiOModicaContatto(@Valid @ModelAttribute Contatto contatto, BindingResult result, Model model) {
+    public String salvaContatto(@Valid @ModelAttribute Contatto contatto, BindingResult result, Model model) {
 
 
         if(result.hasErrors()){
