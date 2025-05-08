@@ -31,7 +31,7 @@ public class Contatto {
 
     private String fotografia;
 
-    @Pattern(regexp = "\\d{10}", message = "Caratteri Non Ammessi In Telefono")
+    @Pattern(regexp = "[\\d]{10}", message = "Caratteri Non Ammessi In Telefono")
     private String telefono;
 
     @Email(message = "Inserisci un indirizzo email valido")

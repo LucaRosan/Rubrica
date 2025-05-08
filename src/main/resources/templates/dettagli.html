@@ -23,7 +23,7 @@
             <tbody>
                 <!-- Esempio contatto -->
                 <tr>
-                    <td><img src="" alt="Foto del contatto"></td>
+                    <td><img th:src="${contatto.fotografia}" alt="Foto contatto"></td>
                     <td
                         th:utext="|${contatto.nome} ${contatto.cognome}<br/>${contatto.telefono}<br/>${contatto.mail}<br/>${contatto.indirizzo.via} ${contatto.indirizzo.civico} ${contatto.indirizzo.cap} ${contatto.indirizzo.comune} (${contatto.indirizzo.provincia})|">
                     </td>

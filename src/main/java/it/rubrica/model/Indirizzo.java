@@ -21,9 +21,9 @@ public class Indirizzo {
 
     @Pattern(regexp = "[a-zA-Z\\sàèìòù']{1,50}", message = "Caratteri Non Ammessi In Via")
     private String via;
-    @Pattern(regexp = "\\d{1,5}", message = "Caratteri Non Ammessi In Civico (massimo 5 cifre)")
+    @Pattern(regexp = "[\\d]{1,5}", message = "Caratteri Non Ammessi In Civico (massimo 5 cifre)")
     private String civico;
-    @Pattern(regexp = "\\d{5}", message = "Caratteri Non Ammessi In Cap (deve contenere 5 cifre)")
+    @Pattern(regexp = "[\\d]{5}", message = "Caratteri Non Ammessi In Cap (deve contenere 5 cifre)")
     private String cap;
     @Pattern(regexp = "[a-zA-Z\\sàèìòù']{1,50}", message = "Caratteri Non Ammessi In Comune")
     private String comune;

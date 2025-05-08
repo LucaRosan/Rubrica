@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import it.rubrica.model.Contatto;
 import it.rubrica.service.ContattiService;
@@ -35,25 +36,37 @@ public class RubricaContattiController {
         return "dettagli";
     }
 
-
     @GetMapping("/elimina")
-    public String eliminaContatto(@RequestParam Integer id){
+    public String eliminaContatto(@RequestParam Integer id) {
         contattiService.eliminaContatto(id);
         return "redirect:/";
     }
 
-
     @PostMapping
-    public String salvaContatto(@Valid @ModelAttribute Contatto contatto, BindingResult result, Model model) {
-
-
-        if(result.hasErrors()){
+    public String salvaContatto(@Valid @ModelAttribute Contatto contatto, BindingResult result,
+            @RequestParam(required = false, name = "fileFotografia") MultipartFile fotografia,
+            Model model) {
+                
+        if (result.hasErrors()) {
             model.addAttribute("contatti", contattiService.elencoContatti());
             return "rubricacontatti";
         }
 
-        contattiService.salvaContatto(contatto);
+        contattiService.salvaContatto(contatto, fotografia);
         return "redirect:/";
     }
+
+
+    @GetMapping("/modifica")
+    public String modificaContatto(@RequestParam Integer id, Model model){
+
+        Contatto contatto = contattiService.contattoById(id);
+        
+        model.addAttribute("contatto", contatto);
+        model.addAttribute("contatti", contattiService.elencoContatti());
+        return "rubricacontatti";
+
+    }
+
 
 }

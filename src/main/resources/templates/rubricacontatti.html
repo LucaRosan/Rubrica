@@ -30,7 +30,7 @@
                     <td class="text-center" th:text="${contatto.cognome}"></td>
                     <td class="text-center" th:text="${contatto.mail}"></td>
                     <td class="text-center">
-                        <a class="btn btn-sm btn-warning" th:href="@{/}">Modifica</a>
+                        <a class="btn btn-sm btn-warning" th:href="@{/modifica(id=${contatto.id})}">Modifica</a>
                         <a class="btn btn-sm btn-primary" th:href="@{/dettaglio(id=${contatto.id})}">Dettagli</a>
                         <a class="btn btn-sm btn-danger" th:href="@{/elimina(id=${contatto.id})}">Elimina</a>
                     </td>
@@ -43,16 +43,19 @@
 
         <!-- Form Inserimento/Modifica -->
         <h2 class="mt-5">Aggiungi / Modifica Contatto</h2>
-        <form method="post" action="/" th:object="${contatto}">
+        <form method="post" action="/" th:object="${contatto}" enctype="multipart/form-data">
+            <input type="hidden" class="form-control" name="id" th:field="*{id}">
+            <input type="hidden" class="form-control" name="fotografia" th:field="*{fotografia}">
+            <input type="hidden" class="form-control" name="indirizzo.id" th:field="*{indirizzo.id}">
             <div class="row mb-3">
                 <div class="col-md-6">
                     <label class="form-label">Nome</label>
-                    <input type="text" class="form-control" name="nome" th:field="*{nome}" required>
+                    <input type="text" class="form-control" name="nome" th:field="*{nome}"required>
                     <small class="text-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></small>
                 </div>
                 <div class="col-md-6">
                     <label class="form-label">Cognome</label>
-                    <input type="text" class="form-control" name="cognome" th:field="*{cognome}" required>
+                    <input type="text" class="form-control" name="cognome" th:field="*{cognome}"required>
                     <small class="text-danger" th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></small>
                 </div>
             </div>
@@ -60,19 +63,19 @@
             <div class="row mb-3">
                 <div class="col-md-6">
                     <label class="form-label">Telefono</label>
-                    <input type="tel" class="form-control" name="telefono" th:field="*{telefono}" required>
+                    <input type="tel" class="form-control" name="telefono" th:field="*{telefono}"required>
                     <small class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></small>
                 </div>
                 <div class="col-md-6">
                     <label class="form-label">Email</label>
-                    <input type="email" class="form-control" name="mail" th:field="*{mail}" required>
+                    <input type="email" class="form-control" name="mail" th:field="*{mail}"required>
                     <small class="text-danger" th:if="${#fields.hasErrors('mail')}" th:errors="*{mail}"></small>
                 </div>
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Foto</label>
-                <input type="file" class="form-control" name="foto" accept="image/*">
+                <input type="file" class="form-control" name="fileFotografia">
             </div>
 
             <div class="row mb-3">
@@ -96,13 +99,13 @@
                 </div>
                 <div class="col-md-2">
                     <label class="form-label">Comune</label>
-                    <input type="text" class="form-control" name="comune" th:field="*{indirizzo.comune}" required>
+                    <input type="text" class="form-control" name="comune" th:field="*{indirizzo.comune}"required>
                     <small class="text-danger" th:if="${#fields.hasErrors('indirizzo.comune')}"
                         th:errors="*{indirizzo.comune}"></small>
                 </div>
                 <div class="col-md-2">
                     <label class="form-label">Provincia</label>
-                    <input type="text" class="form-control" name="provincia" th:field="*{indirizzo.provincia}" required>
+                    <input type="text" class="form-control" name="provincia" th:field="*{indirizzo.provincia}"required>
                     <small class="text-danger" th:if="${#fields.hasErrors('indirizzo.provincia')}"
                         th:errors="*{indirizzo.provincia}"></small>
                 </div>
